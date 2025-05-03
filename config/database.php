@@ -116,7 +116,7 @@ return [
     'mongodb' => [
         'driver' => 'mongodb',
         'dsn' => env('DB_URI', 'mongodb+srv://username:password@<atlas-cluster-uri>/myappdb?retryWrites=true&w=majority'),
-        'database' => 'project RPL',
+        'database' => env('DB_DATABASE', 'dapurkost')
         ],
     ],
 
