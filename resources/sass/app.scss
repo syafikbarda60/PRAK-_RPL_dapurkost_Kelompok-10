@@ -1,2 +1,14 @@
 @import "components/header";
 @import "components/sidebar";
+@import "pages/home";
+
+* {
+    text-decoration: none !important;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(to bottom, #0f5132, #e6d5b8);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
