@@ -61,3 +61,64 @@ header {
     border: 1px solid black;
     border-radius: 15px;
 }
+
+/* --- login page --- */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-card .btn-warning {
+    background-color: #fd7e14;
+    border-color: #fd7e14;
+    color: white;
+    padding: 0.6rem;
+}
+
+.login-card .btn-warning:hover {
+    background-color: #e76b00;
+    border-color: #e76b00;
+    color: white;
+}
+
+.login-card .input-group-text {
+    border-right: none;
+}
+
+.login-card .form-control {
+    border-left: none;
+}
+
+.login-card .form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+.login-card .input-group:focus-within .input-group-text {
+    border-color: #fd7e14;
+}
+
+.login-card .input-group:focus-within .form-control {
+    border-color: #fd7e14;
+}
+
+.login-card .bi-arrow-left {
+    margin-right: 0.5rem;
+}
+
+.login-card a {
+    color: #fd7e14;
+}
+
+.login-card a:hover {
+    color: #e76b00;
+}
