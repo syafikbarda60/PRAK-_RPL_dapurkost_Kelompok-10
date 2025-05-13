@@ -6,3 +6,32 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.home');
 });
+
+Route::get('/register', function () {
+    return view('pages.register');
+})->name('show.register');;
+
+Route::get('/login', function () {
+    return view('pages.login');
+})->name('show.login');
+
+Route::post('/login', function (Illuminate\Http\Request $request) {
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required'
+    ]);
+    $staticEmail = 'akun@gmail.com';
+    $staticPassword = '123';
+    if ($request->email === $staticEmail && $request->password === $staticPassword) {
+        // Simulasi login berhasil
+        session(['logged_in' => true, 'user_email' => $request->email]);
+        return redirect('/')->with('success', 'Berhasil login!');
+    } else {
+        return back()->withErrors(['email' => 'Email atau password salah.'])->withInput();
+    }
+});
+
+Route::post('/logout', function () {
+    session()->flush(); // menghapus semua data sesi
+    return redirect('/login');
+})->name('logout');

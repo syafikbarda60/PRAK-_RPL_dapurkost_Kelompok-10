@@ -13,13 +13,13 @@
         <i class="bi bi-box-arrow-right text-white"></i>
     </a>
     <form id="logout-form" action="
-    {{-- {{ route('logout') }} --}}
+    {{ route('logout') }}
      " method="POST" class="d-none">
         @csrf
     </form>
     @else
     <a href="
-    {{-- {{ route('login') }} --}}
+    {{ route('show.login') }}
      ">
         <i class="bi bi-person-circle text-white"></i>
     </a>
