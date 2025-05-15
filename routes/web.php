@@ -23,7 +23,7 @@ Route::post('/login', function (Illuminate\Http\Request $request) {
     $staticEmail = 'akun@gmail.com';
     $staticPassword = '123';
     if ($request->email === $staticEmail && $request->password === $staticPassword) {
-        // Simulasi login berhasil
+        
         session(['logged_in' => true, 'user_email' => $request->email]);
         return redirect('/')->with('success', 'Berhasil login!');
     } else {
@@ -32,6 +32,14 @@ Route::post('/login', function (Illuminate\Http\Request $request) {
 });
 
 Route::post('/logout', function () {
-    session()->flush(); // menghapus semua data sesi
+    session()->flush();
     return redirect('/login');
 })->name('logout');
+
+Route::get('/search', function () {
+    return view('pages.search');
+});
+
+Route::get('/searchresult', function () {
+    return view('pages.searchresult');
+});
