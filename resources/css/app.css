@@ -122,3 +122,11 @@ header {
 .login-card a:hover {
     color: #e76b00;
 }
+
+/* create page */
+.create-container{
+    .input-image{
+        display: none;
+    }
+    
+}

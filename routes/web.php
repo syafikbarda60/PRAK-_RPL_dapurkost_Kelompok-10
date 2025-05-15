@@ -23,7 +23,7 @@ Route::post('/login', function (Illuminate\Http\Request $request) {
     $staticEmail = 'akun@gmail.com';
     $staticPassword = '123';
     if ($request->email === $staticEmail && $request->password === $staticPassword) {
-        
+
         session(['logged_in' => true, 'user_email' => $request->email]);
         return redirect('/')->with('success', 'Berhasil login!');
     } else {
@@ -42,4 +42,11 @@ Route::get('/search', function () {
 
 Route::get('/searchresult', function () {
     return view('pages.searchresult');
+});
+
+Route::get('/create', function () {
+    if (!session('logged_in')) {
+        return redirect('/login');
+    }
+    return view('pages.create');
 });
