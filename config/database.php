@@ -31,6 +31,15 @@ return [
 
     'connections' => [
 
+
+        'mongodb'=> [
+            'driver'=> 'mongodb',
+            'dsn'=> env('DB_URI'),
+            'database'=> env('DB_DATABASE','dapurkost' )
+
+
+        ],
+
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
@@ -113,11 +122,6 @@ return [
         ],
 
 
-    'mongodb' => [
-        'driver' => 'mongodb',
-        'dsn' => env('DB_URI', 'mongodb+srv://username:password@<atlas-cluster-uri>/myappdb?retryWrites=true&w=majority'),
-        'database' => 'project RPL',
-        ],
     ],
 
     /*
