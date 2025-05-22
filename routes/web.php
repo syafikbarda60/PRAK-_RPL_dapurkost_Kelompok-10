@@ -59,3 +59,9 @@ Route::get('/collection', function () {
 Route::get('/recipe', function () {
     return view('pages.recipe');
 });
+Route::get('/profile', function () {
+    if (!session('logged_in')) {
+        return redirect('/login');
+    }
+    return view('pages.profile');
+});
