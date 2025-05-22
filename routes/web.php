@@ -50,3 +50,12 @@ Route::get('/create', function () {
     }
     return view('pages.create');
 });
+Route::get('/collection', function () {
+    if (!session('logged_in')) {
+        return redirect('/login');
+    }
+    return view('pages.collection');
+});
+Route::get('/recipe', function () {
+    return view('pages.recipe');
+});
