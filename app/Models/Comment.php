@@ -6,7 +6,7 @@ namespace App\Models;
 
 use MongoDB\Laravel\Eloquent\Model;
 
-class comment extends Model
+class Comment extends Model
 {
     protected $connection = 'mongodb';
     protected $table = 'comments';

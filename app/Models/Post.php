@@ -10,10 +10,9 @@ class Post extends Model
     protected $table = 'posts';
 
     protected $fillable = [
-        'nama',
-        'deskripsi',
-        'image',
-        'kategori',
+        'caption',
+        'image_path',
+        'image_url',
         'user_id',
     ];
 

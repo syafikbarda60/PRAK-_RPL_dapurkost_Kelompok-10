@@ -13,7 +13,7 @@ class ProfileController extends Controller
         return view('profiles.index', compact('user'));
     }
 
-    public function user(User $user)
+    public function edit(User $user)
     {
          // Check if the authenticated user is the same as the profile user
          if (auth()->id() !== $user->id) {

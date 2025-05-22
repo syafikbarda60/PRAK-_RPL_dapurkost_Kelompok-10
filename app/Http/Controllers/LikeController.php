@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\MenuMakanan;
+use App\Models\Post;
 
 class LikeController extends Controller
 {
@@ -12,18 +12,18 @@ class LikeController extends Controller
         $this->middleware('auth');
     }
 
-    public function store(MenuMakanan $MenuMakanan)
+    public function store(Post $post)
     {
-        $MenuMakanan->likes()->create([
+        $post->likes()->create([
             'user_id' => auth()->id(),
         ]);
 
         return back();
     }
 
-    public function destroy(MenuMakanan $MenuMakanan)
+    public function destroy(Post $post)
     {
-        $MenuMakanan->likes()->where('user_id', auth()->id())->delete();
+        $post->likes()->where('user_id', auth()->id())->delete();
 
         return back();
     }
