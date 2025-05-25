@@ -1,11 +1,132 @@
-@import 'tailwindcss';
+/* --- global styles --- */
+* {
+    text-decoration: none !important;
+    margin: 0;
+    padding: 0;
+}
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+body {
+    background: linear-gradient(to bottom, #0f5132, #e6d5b8);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+/* --- header --- */
+header {
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to left, #000000, #ffffff);
+}
+
+.custom-header i {
+    font-size: xx-large !important;
+    color: #000000;
+}
+
+.custom-header .btn-list:focus,
+.custom-header .btn-list:active {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+.custom-header .logo-img {
+    height: 120px;
+}
+
+/* --- sidebar --- */
+.sidebar {
+    font-size: xx-large !important;
+}
+
+.sidebar .offcanvas-title {
+    font-size: xx-large !important;
+}
+
+.sidebar .btn-close:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+.sidebar .nav-link {
+    color: black !important;
+    margin-bottom: 20px !important;
+}
+
+/* --- home page --- */
+.carousel-home img {
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+/* --- login page --- */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-card .btn-warning {
+    background-color: #fd7e14;
+    border-color: #fd7e14;
+    color: white;
+    padding: 0.6rem;
+}
+
+.login-card .btn-warning:hover {
+    background-color: #e76b00;
+    border-color: #e76b00;
+    color: white;
+}
+
+.login-card .input-group-text {
+    border-right: none;
+}
+
+.login-card .form-control {
+    border-left: none;
+}
+
+.login-card .form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+.login-card .input-group:focus-within .input-group-text {
+    border-color: #fd7e14;
+}
+
+.login-card .input-group:focus-within .form-control {
+    border-color: #fd7e14;
+}
+
+.login-card .bi-arrow-left {
+    margin-right: 0.5rem;
+}
+
+.login-card a {
+    color: #fd7e14;
+}
+
+.login-card a:hover {
+    color: #e76b00;
+}
+
+/* create page */
+.create-container{
+    .input-image{
+        display: none;
+    }
+    
 }
