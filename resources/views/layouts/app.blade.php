@@ -20,23 +20,5 @@
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.getElementById('image').addEventListener('change', function(event) {
-            const input = event.target;
-            const previewImg = document.getElementById('preview-img');
-
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-
-                reader.onload = function(e) {
-                    previewImg.src = e.target.result;
-                    previewImg.classList.remove('d-none');
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        });
-
-    </script>
 </body>
 </html>
