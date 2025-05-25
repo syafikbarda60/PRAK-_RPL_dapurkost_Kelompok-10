@@ -34,6 +34,7 @@ class ProfileController extends Controller
             'name' => 'required',
             'username' => 'required',
             'profile_image' => 'image|nullable|mimes:jpeg,png,jpg,gif|max:2048',
+            'bio' => 'required',
         ]);
 
         if ($request->hasFile('profile_image')) {

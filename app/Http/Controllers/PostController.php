@@ -33,12 +33,13 @@ class PostController extends Controller
 
         $imagePath = $request->file('image')->store('uploads', 'public');
 
-        auth()->user()->posts()->create([
+        $post = auth()->user()->posts()->create([
             'caption' => $data['caption'],
             'image_path' => $imagePath,
         ]);
 
-        return redirect('/profile/' . auth()->user()->id);
+        // ✅ Arahkan ke halaman post yang baru saja dibuat
+        return redirect('/posts/' . $post->id)->with('success', 'Post created successfully!');
     }
 
     public function show(Post $post)
@@ -48,7 +49,6 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        // Check if the authenticated user is the same as the post user
         if (auth()->id() !== $post->user_id) {
             abort(403, 'Unauthorized action.');
         }
@@ -58,7 +58,6 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
-        // Check if the authenticated user is the same as the post user
         if (auth()->id() !== $post->user_id) {
             abort(403, 'Unauthorized action.');
         }
@@ -69,22 +68,20 @@ class PostController extends Controller
 
         $post->update($data);
 
-        return redirect('/posts/' . $post->id);
+        // ✅ Arahkan ke halaman post setelah update
+        return redirect('/posts/' . $post->id)->with('success', 'Post updated successfully!');
     }
 
     public function destroy(Post $post)
     {
-        // Check if the authenticated user is the same as the post user
         if (auth()->id() !== $post->user_id) {
             abort(403, 'Unauthorized action.');
         }
-        
-        // Delete the image file
+
         Storage::disk('public')->delete($post->image_path);
-        
-        // Delete the post
         $post->delete();
 
-        return redirect('/profile/' . auth()->user()->id);
+        // ✅ Arahkan ke halaman daftar post setelah delete
+        return redirect('/posts')->with('success', 'Post deleted successfully!');
     }
 }

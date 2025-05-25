@@ -45,8 +45,10 @@
                 <p>{{ $post->caption }}</p>
             @endif
             <hr>
-            
-            <div class="d-flex mb-2">
+         
+            {{-- testing untuk ubat like jadi rating  --}}
+
+            {{--<div class="d-flex mb-2">
                 @if($post->likes->where('user_id', auth()->id())->count() > 0)
                     <form action="{{ route('likes.destroy', $post->id) }}" method="POST">
                         @csrf
@@ -68,7 +70,59 @@
             <p class="text-muted">{{ $post->created_at->format('F d, Y') }}</p>
             
             <hr>
-            
+        --}}
+            <div class="d-flex mb-2">
+    @if($post->likes->where('user_id', auth()->id())->count() > 0)
+        <form action="{{ route('likes.destroy', $post->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-link p-0 me-2">
+                <i class="fas fa-heart text-danger"></i>
+            </button>
+        </form>
+        <span class="ms-2">Your Rating:
+            {{ $post->likes->where('user_id', auth()->id())->first()->rating ?? 'N/A' }} ★
+        </span>
+    @else
+        <form action="{{ route('likes.store', $post->id) }}" method="POST">
+            @csrf
+            <div class="rating-stars me-2">
+                @for ($i = 1; $i <= 5; $i++)
+                    <input type="radio" name="rating" id="rating{{ $post->id }}-{{ $i }}" value="{{ $i }}">
+                    <label for="rating{{ $post->id }}-{{ $i }}">★</label>
+                @endfor
+            </div>
+            <button type="submit" class="btn btn-link p-0">
+                <i class="far fa-heart"></i>
+            </button>
+        </form>
+    @endif
+</div>
+
+<style>
+    .rating-stars {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+    }
+    .rating-stars input[type="radio"] {
+        display: none;
+    }
+    .rating-stars label {
+        font-size: 1.5rem;
+        color: #ccc;
+        cursor: pointer;
+    }
+    .rating-stars input[type="radio"]:checked ~ label {
+        color: #ffc107;
+    }
+    .rating-stars label:hover,
+    .rating-stars label:hover ~ label {
+        color: #ffc107;
+    }
+</style>
+
+
             <div class="comments-section" style="max-height: 300px; overflow-y: auto;">
                 @foreach($post->comments as $comment)
                     <div class="d-flex mb-2">

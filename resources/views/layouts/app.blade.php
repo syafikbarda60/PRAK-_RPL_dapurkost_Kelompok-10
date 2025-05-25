@@ -84,9 +84,11 @@
                 </button>
                  -->
 
-                 <button class="btn btn-outline-success me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+                 <!--
+                    <button class="btn btn-outline-success me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
                      <i class="fas fa-bars"></i>
                 </button>
+                -->
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
