@@ -1,15 +1,3 @@
-@import 'tailwindcss';
-
-@import '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@import '../../storage/framework/views/*.php';
-@import '../**/*.blade.php';
-@import '../**/*.js';
-
-:root {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
-}
-
 /* --- global styles --- */
 * {
     text-decoration: none !important;
