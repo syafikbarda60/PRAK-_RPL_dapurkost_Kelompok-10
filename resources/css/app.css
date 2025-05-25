@@ -123,6 +123,69 @@ header {
     color: #e76b00;
 }
 
+/* register page */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.register-card .btn-warning {
+    background-color: #fd7e14;
+    border-color: #fd7e14;
+    color: white;
+    padding: 0.6rem;
+}
+
+.register-card .btn-warning:hover {
+    background-color: #e76b00;
+    border-color: #e76b00;
+    color: white;
+}
+
+.register-card .input-group-text {
+    border-right: none;
+}
+
+.register-card .form-control {
+    border-left: none;
+}
+
+.register-card .form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+.register-card .input-group:focus-within .input-group-text {
+    border-color: #fd7e14;
+}
+
+.register-card .input-group:focus-within .form-control {
+    border-color: #fd7e14;
+}
+
+.register-card .bi-arrow-left {
+    margin-right: 0.5rem;
+}
+
+.register-card a {
+    color: #fd7e14;
+    text-decoration: none;
+}
+
+.register-card a:hover {
+    color: #e76b00;
+    text-decoration: underline;
+}
+
 /* create page */
 .create-container{
     .input-image{

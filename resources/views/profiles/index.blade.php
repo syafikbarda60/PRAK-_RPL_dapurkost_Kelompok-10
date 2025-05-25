@@ -7,7 +7,7 @@
             @if ($user->profile_image)
             <img src="{{ asset('storage/' . $user->profile_image) }}" alt="Foto Profil" class="rounded-circle" style="width: 120px; height: 120px; object-fit: cover;">
             @else
-            <img src="{{ asset('assets/images/default-profile.png') }}" alt="Foto Profil" class="rounded-circle" style="width: 120px; height: 120px; object-fit: cover;">
+            <img src="{{ asset('assets/images/default-profile.png') }}" alt="Foto Profil" class="rounded-circle border border-2" style="width: 120px; height: 120px; object-fit: cover;">
             @endif
         </div>
 
