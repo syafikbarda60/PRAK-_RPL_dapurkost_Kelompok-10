@@ -6,7 +6,8 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #0f5132, #e6d5b8);
+    /* background: linear-gradient(to bottom, #0f5132, #e6d5b8); */
+        background: #0f5132;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -193,3 +194,71 @@ header {
     }
     
 }
+
+/* Edit Profile Page */
+.btn-warning {
+    background-color: #fd7e14;
+    border-color: #fd7e14;
+    color: white;
+    padding: 0.6rem;
+}
+.edit-profile-card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-profile-card .btn-warning {
+    background-color: #fd7e14;
+    border-color: #fd7e14;
+    color: white;
+}
+
+.edit-profile-card .btn-warning:hover {
+    background-color: #e76b00;
+    border-color: #e76b00;
+    color: white;
+}
+
+.edit-profile-card .input-group-text {
+    border-right: none;
+}
+
+.edit-profile-card .form-control {
+    border-left: none;
+}
+
+.edit-profile-card .form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+.edit-profile-card .input-group:focus-within .input-group-text {
+    border-color: #fd7e14;
+}
+
+.edit-profile-card .input-group:focus-within .form-control {
+    border-color: #fd7e14;
+}
+
+/* Index Post Page */
+.post-image {
+    max-height: 500px;
+    object-fit: cover;
+    width: 100%;
+}
+.like-btn, .comment-btn {
+    font-size: 1.4rem;
+    color: #6c757d; /* warna abu */
+    transition: color 0.3s ease;
+}
+
+.like-btn:hover, .comment-btn:hover {
+    color: #fd7e14; /* oranye (matching warna btn-warning) */
+    text-decoration: none;
+}
+
+.like-btn.liked {
+    color: #e76b00; /* warna oranye gelap saat liked */
+}
+
