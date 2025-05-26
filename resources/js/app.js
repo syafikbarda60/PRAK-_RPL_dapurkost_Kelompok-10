@@ -1,16 +1,29 @@
-// Menampilkan Preview Gambar saat Menambah Postingan
-document.getElementById("image").addEventListener("change", function (event) {
-    const input = event.target;
-    const previewImg = document.getElementById("preview-img");
+(function () {
+    document.addEventListener("DOMContentLoaded", function () {
+        function setupImagePreview(inputId, previewId) {
+            const input = document.getElementById(inputId);
+            const previewImg = document.getElementById(previewId);
 
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
+            if (input && previewImg) {
+                input.addEventListener("change", function () {
+                    if (input.files && input.files[0]) {
+                        const reader = new FileReader();
 
-        reader.onload = function (e) {
-            previewImg.src = e.target.result;
-            previewImg.classList.remove("d-none");
-        };
+                        reader.onload = function (e) {
+                            previewImg.src = e.target.result;
+                            previewImg.classList.remove("d-none");
+                        };
 
-        reader.readAsDataURL(input.files[0]);
-    }
-});
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                });
+            }
+        }
+
+        // Jalankan untuk input di halaman edit profil
+        setupImagePreview("profile_image", "preview-img");
+
+        // Jalankan juga untuk input di halaman create postingan
+        setupImagePreview("image", "preview-img");
+    });
+})();
