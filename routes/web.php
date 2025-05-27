@@ -54,4 +54,7 @@ Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('like
 Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('likes.destroy');
 Auth::routes();
 
+Route::post('/posts/{post}/rate', [RatingController::class, 'store'])->name('rating.store');
+Route::delete('/posts/{post}/rate', [RatingController::class, 'destroy'])->name('rating.destroy');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
