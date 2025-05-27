@@ -6,59 +6,40 @@ use Illuminate\Http\Request;
 
 class ratingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function store(Request $request, Post $post)
     {
-        //
+        $data = $request->validate([
+            'rating' => 'required|integer|min:1|max:5',
+        ]);
+
+        // Cek apakah user sudah kasih rating
+        $existing = $post->likes()->where('user_id', auth()->id())->first();
+
+        if ($existing) {
+            $existing->update(['rating' => $data['rating']]);
+            return back()->with('message', 'Rating updated.');
+        }
+
+        // Jika belum ada, buat entri baru
+        $post->likes()->create([
+            'user_id' => auth()->id(),
+            'liked' => false, // or null if preferred
+            'rating' => $data['rating'],
+        ]);
+
+        return back()->with('message', 'Rating submitted!');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function destroy(Post $post)
     {
-        //
-    }
+        $post->likes()->where('user_id', auth()->id())->update(['rating' => null]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return back()->with('message', 'Rating removed.');
     }
 }
+
